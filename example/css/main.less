@@ -1,0 +1,42 @@
+@import "../../bootstrap/less/bootstrap.less";
+
+.robot-well() {
+	background-color: #eee;
+	@shadow: 0px 2px 5px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+	.box-shadow(@shadow);
+	.border-radius(4px);
+}
+
+body {
+	margin-top: 50px;
+}
+
+.CodeMirror {
+	font-size: 14px;
+	.robot-well();
+	background-color: #fff;
+}
+
+.CodeMirror-scroll {
+	height: auto;
+	overflow: visible;
+}
+
+.top-container {
+	overflow: hidden;
+	padding: 40px 40px 0 0;
+
+	h1 {
+		margin-bottom: 20px;
+	}
+}
+
+.robot-example-top {
+	float: left;
+	margin: -40px 40px 0 0;
+	border-right: 2px solid #ccc;
+}
+
+.robot-example {
+	.robot-well();
+}

@@ -1,0 +1,15 @@
+{
+  "name": "robot",
+  "preferGlobal": "false",
+  "version": "0.1.0",
+  "author": "Jan Paul Posma <jp@jsdares.com>",
+  "description": "HTML5 robot applet from jsdares",
+  "keywords": [
+    "robot", "jsdares", "logo", "karel", "karel the robot", "html5"
+  ],
+  "dependencies": {
+    "browserify"     : "1.16.x",
+    "less"           : "1.3.x"
+    
+  }
+}

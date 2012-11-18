@@ -1,0 +1,356 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.robot-highlighting {
+  cursor: crosshair;
+}
+.robot-container {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.robot-maze {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.robot-maze .robot-maze-block {
+  position: absolute;
+}
+.robot-container.robot-interactive .robot-maze .robot-maze-block {
+  cursor: pointer;
+}
+.robot-maze .robot-maze-block.robot-maze-block-goal {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #080;
+  -webkit-transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+  -ms-transition: background-color 0.3s linear;
+  -o-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
+  -webkit-backface-visibility: hidden;
+}
+.robot-maze .robot-maze-block.robot-maze-block-goal.robot-maze-block-goal-blink {
+  background-color: #00ce00;
+}
+.robot-maze .robot-maze-line-vertical {
+  position: absolute;
+  width: 20px;
+  margin-left: -10px;
+}
+.robot-container.robot-interactive .robot-maze .robot-maze-line-vertical {
+  cursor: pointer;
+}
+.robot-maze .robot-maze-line-vertical .robot-maze-line-inside {
+  position: absolute;
+  left: 9px;
+  top: 0px;
+  width: 2px;
+  height: 100%;
+  z-index: 5;
+  background-color: #ccc;
+}
+.robot-maze .robot-maze-line-vertical.robot-maze-line-active .robot-maze-line-inside {
+  left: 7px;
+  width: 6px;
+  top: -3px;
+  height: 100%;
+  padding-bottom: 6px;
+  background-color: #333 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 10;
+  -webkit-backface-visibility: hidden;
+}
+.robot-maze .robot-maze-line-horizontal {
+  position: absolute;
+  height: 20px;
+  margin-top: -10px;
+}
+.robot-container.robot-interactive .robot-maze .robot-maze-line-horizontal {
+  cursor: pointer;
+}
+.robot-maze .robot-maze-line-horizontal .robot-maze-line-inside {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  z-index: 5;
+  background-color: #ccc;
+}
+.robot-maze .robot-maze-line-horizontal.robot-maze-line-active .robot-maze-line-inside {
+  left: -3px;
+  height: 6px;
+  top: 7px;
+  width: 100%;
+  padding-right: 6px;
+  background-color: #333 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 10;
+  -webkit-backface-visibility: hidden;
+}
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-block:hover {
+  background-color: #0a0;
+  opacity: 0.3;
+}
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-block.robot-maze-block-goal:hover {
+  background-color: #0a0;
+  opacity: 0.7;
+}
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-line-vertical:hover .robot-maze-line-inside,
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-line-horizontal:hover .robot-maze-line-inside {
+  background-color: #888;
+}
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-line-vertical.robot-maze-line-active:hover .robot-maze-line-inside,
+.robot-container.robot-interactive.robot-not-highlighting:hover .robot-maze .robot-maze-line-horizontal.robot-maze-line-active:hover .robot-maze-line-inside {
+  background-color: #000 !important;
+}
+.robot-error {
+  opacity: 0.5;
+}
+.robot-robot {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  width: 38px;
+  margin-left: -19px;
+  height: 44px;
+  margin-top: -22px;
+  overflow: hidden;
+  background-image: url(data:image/png;base64,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);
+  background-position-x: 0px;
+  z-index: 20;
+  -webkit-backface-visibility: hidden;
+}
+.robot-robot.robot-green {
+  background-position-x: -41px;
+}
+.robot-robot.robot-red {
+  background-position-x: -82px;
+}
+.robot-robot.robot-initial {
+  opacity: 0.4;
+  z-index: 21;
+}
+.robot-container.robot-interactive .robot-robot.robot-initial {
+  cursor: pointer;
+}
+.robot-container.robot-interactive .robot-robot.robot-initial:hover {
+  opacity: 0.6;
+}
+.robot-container.robot-interactive .robot-robot.robot-initial.robot-initial-dragging {
+  opacity: 0.8;
+}
+.robot-path {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.robot-path .robot-path-hidden {
+  display: none;
+}
+.robot-path .robot-path-hidden.robot-path-highlight-time {
+  display: block;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.robot-path .robot-path-line {
+  position: absolute;
+  height: 2px;
+  margin-top: -1px;
+  z-index: 11;
+}
+.robot-path .robot-path-line .robot-path-line-inside {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  -webkit-backface-visibility: hidden;
+}
+.robot-path .robot-path-line.robot-path-highlight-time .robot-path-line-inside {
+  background-color: rgba(0, 110, 220, 0.3);
+}
+.robot-path .robot-path-line.robot-path-highlight-event {
+  z-index: 13;
+}
+.robot-path .robot-path-line.robot-path-highlight-event .robot-path-line-inside {
+  background-color: #006edc;
+}
+.robot-path .robot-path-line.robot-path-highlight,
+.robot-path .robot-path-line.robot-path-highlight-step {
+  z-index: 15;
+}
+.robot-path .robot-path-line.robot-path-highlight .robot-path-line-inside,
+.robot-path .robot-path-line.robot-path-highlight-step .robot-path-line-inside {
+  background-color: rgba(5, 195, 5, 0.85);
+}
+.robot-path .robot-path-point {
+  position: absolute;
+  width: 16px;
+  height: 6px;
+  margin-left: -8px;
+  margin-top: -3px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  z-index: 12;
+}
+.robot-path .robot-path-point .robot-path-point-inside {
+  position: absolute;
+  background-color: #333;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-backface-visibility: hidden;
+}
+.robot-path .robot-path-point .robot-path-point-inside .robot-path-point-arrow {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 2px;
+  background-color: #333;
+  -webkit-backface-visibility: hidden;
+}
+.robot-path .robot-path-point.robot-path-highlight-time .robot-path-point-inside {
+  background-color: rgba(0, 110, 220, 0.5);
+}
+.robot-path .robot-path-point.robot-path-highlight-time .robot-path-point-inside .robot-path-point-arrow {
+  background-color: rgba(0, 110, 220, 0.5);
+}
+.robot-path .robot-path-point.robot-path-highlight-event {
+  z-index: 14;
+}
+.robot-path .robot-path-point.robot-path-highlight-event .robot-path-point-inside {
+  background-color: #006edc;
+}
+.robot-path .robot-path-point.robot-path-highlight-event .robot-path-point-inside .robot-path-point-arrow {
+  background-color: #006edc;
+}
+.robot-path .robot-path-point.robot-path-highlight,
+.robot-path .robot-path-point.robot-path-highlight-step {
+  z-index: 16;
+}
+.robot-path .robot-path-point.robot-path-highlight .robot-path-point-inside,
+.robot-path .robot-path-point.robot-path-highlight-step .robot-path-point-inside {
+  background-color: rgba(5, 195, 5, 0.85);
+}
+.robot-path .robot-path-point.robot-path-highlight .robot-path-point-inside .robot-path-point-arrow,
+.robot-path .robot-path-point.robot-path-highlight-step .robot-path-point-inside .robot-path-point-arrow {
+  background-color: rgba(5, 195, 5, 0.85);
+}
+.robot-highlighting .robot-path .robot-path-line {
+  height: 20px;
+  margin-top: -10px;
+}
+.robot-highlighting .robot-path .robot-path-line .robot-path-line-inside {
+  top: 9px;
+}
+.robot-highlighting .robot-path .robot-path-point {
+  width: 20px;
+  height: 10px;
+  margin-left: -10px;
+  margin-top: -5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.robot-highlighting .robot-path .robot-path-point .robot-path-point-inside {
+  top: 5px;
+  left: 5px;
+}
+@keyframes robot-maze-block-goal-blink-anim {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@-webkit-keyframes robot-maze-block-goal-blink-anim {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@-moz-keyframes robot-maze-block-goal-blink-anim {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@-ms-keyframes robot-maze-block-goal-blink-anim {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
+@-o-keyframes robot-maze-block-goal-blink-anim {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+}
