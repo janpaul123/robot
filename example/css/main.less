@@ -2,9 +2,8 @@
 
 .robot-well() {
 	background-color: #eee;
-	@shadow: 0px 2px 5px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.4);
-	.box-shadow(@shadow);
-	.border-radius(4px);
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
 }
 
 body {
@@ -39,4 +38,8 @@ body {
 
 .robot-example {
 	.robot-well();
+}
+
+.row {
+  margin-bottom: 20px;
 }

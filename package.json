@@ -5,11 +5,15 @@
   "author": "Jan Paul Posma <jp@jsdares.com>",
   "description": "HTML5 robot applet from jsdares",
   "keywords": [
-    "robot", "jsdares", "logo", "karel", "karel the robot", "html5"
+    "robot",
+    "jsdares",
+    "logo",
+    "karel",
+    "karel the robot",
+    "html5"
   ],
   "dependencies": {
-    "browserify"     : "1.16.x",
-    "less"           : "1.3.x"
-    
+    "browserify": "1.16.x",
+    "less": "1.3.x"
   }
 }
